@@ -7,17 +7,6 @@
 	//array literal
 	var ftr1=["Kickass",20,100];
 	var ftr2=["Your Mom",20,100];
-	//player name
-	var p1Name="Kickass";
-	var p2Name="Your Mom";
-	//player damage
-	var p1Dmg=20;
-	var p2Dmg=20;
-	//player health
-	var p1Hp=100;
-	var p2Hp=100;
-	console.log(ftr1[0],ftr1[1],ftr1[2]);
-	//number of rounds
 	var rndNum=0;
 	function fight(){
 		//console.log("in the fight function")
@@ -41,16 +30,14 @@
 			}else{
 				alert(results);
 				break;
-			};
-		};
-	};
+			};};};
 	function winnerCheck(){
 		var result="No Winner";
 		if(ftr1[2]<1 && ftr2[2]<1){
 			result="You Both Die";	
 		}else if(ftr1[2]<1){
 			result=ftr2[0]+" Wins!!!";
-		}else if(p2Hp<1){
+		}else if(ftr2[2]<1){
 			result=ftr1[0]+" Wins!!!";
 		};return result
 	};
