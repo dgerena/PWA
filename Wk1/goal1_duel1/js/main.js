@@ -42,36 +42,9 @@
 				alert(results);
 				break;
 			};
-			//else if
 		};
-	/*function fight(){
-		//console.log("in the fight function")
-		alert(p1Name+":"+p1Hp+" *START* "+p2Name+":"+p2Hp)
-		for(var i=0;i<10;i++){
-		//random number formula for a min of half damage-math.floor(Math.random()*(50-25)+25);
-			console.log(i)
-			var minDmg1=p1Dmg*.5;
-			var minDmg2=p2Dmg*.5;
-			var f1=Math.floor(Math.random()*(p1Dmg-minDmg1)+minDmg1)
-			var f2=Math.floor(Math.random()*(p2Dmg-minDmg2)+minDmg2)
-			//dmg done
-			p1Hp-=f1;
-			p2Hp-=f2;
-			console.log(p1Name+":"+p1Hp+" "+p2Name+":"+p2Hp);
-			var results=winnerCheck();
-			console.log(results)
-			if(results==="No Winner"){
-				rndNum++;
-				alert(p1Name+":"+p1Hp+"*Round "+rndNum+" Over*"+p2Name+":"+p2Hp)
-			}else{
-				alert(results);
-				break;
-			};
-			//else if
-		};*/
 	};
 	function winnerCheck(){
-	//console.log("checked")
 		var result="No Winner";
 		if(ftr1[2]<1 && ftr2[2]<1){
 			result="You Both Die";	
@@ -79,13 +52,7 @@
 			result=ftr2[0]+" Wins!!!";
 		}else if(p2Hp<1){
 			result=ftr1[0]+" Wins!!!";
-		};
-		return result
-		//console.log("win cond. checked.")
+		};return result
 	};
-	
-	//console.log("begining program")
 	fight()
-	
 })();
-//console.log("working");
