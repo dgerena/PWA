@@ -14,24 +14,19 @@
 		btn:document.querySelector(".buttonblue"),
 		krapos:document.querySelector("#kratos p"),
 		kabel:document.querySelector("#kabal p"),
-		circle:document.querySelector("#round_number input value")
+		circle:document.querySelector("#round_number input")
 		};
-		
-		var onClick=function(e){
+			var onClick=function(e){
 			console.log("I click");
 			fight();
 		};
-	
 		domEdit.btn.addEventListener("click",onClick,false);
-		
-		console.log(domEdit);
-		
 	function fight(){
 		console.log(domEdit.circle);
 /* 			var p1Head=kratos.p.innerHTML); */
 			domEdit.kabel.innerHTML = fighters[0].ftr1[0]+" : "+fighters[0].ftr1[2];
 			domEdit.krapos.innerHTML = fighters[0].ftr2[0]+" : "+fighters[0].ftr2[2];
-			domEdit.circle= "Round "+rndNum;
+			domEdit.circle.value= "Round "+rndNum;
 			var minDmg1=fighters[0].ftr1[1]*.5;
 			var minDmg2=fighters[0].ftr2[1]*.5;
 			var f1=Math.floor(Math.random()*(fighters[0].ftr1[1]-minDmg1)+minDmg1)
@@ -52,14 +47,20 @@
 			result="You Both Die";
 			fighters[0].ftr1[2]=100;
 			fighters[0].ftr2[2]=100;
+			rndNum=0;
+			domEdit.circle.value= "You Both Die";
 		}else if(fighters[0].ftr1[2]<1){
+			domEdit.circle.value=fighters[0].ftr2[0]+" Wins!!!";
 			result=fighters[0].ftr2[0]+" Wins!!!";
 			fighters[0].ftr1[2]=100;
 			fighters[0].ftr2[2]=100;
+			rndNum=0;
 		}else if(fighters[0].ftr2[2]<1){
+		domEdit.circle.value=fighters[0].ftr1[0]+" Wins!!!";
 			result=fighters[0].ftr1[0]+" Wins!!!";
 			fighters[0].ftr1[2]=100;
 			fighters[0].ftr2[2]=100;
+			rndNum=0;
 		};return result                          
 	};
 	fight()
