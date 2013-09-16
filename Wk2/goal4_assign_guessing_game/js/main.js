@@ -16,12 +16,12 @@
 	var guess=0;//to hold the guess
 	var guessRemain=3;
 	var domCharChar={
-		outPut:document.getElementById("#Output"),//output
-		btn:document.querySelector("button"),//btn
+		outPut:document.getElementById("Output"),//output
+		btn:document.querySelector("#button"),//btn
 		input:document.querySelector("#input")//input field
 	};
 	
-	console.log(conNum);
+	console.log(domCharChar);
 	domCharChar.btn.addEventListener("click",onClick,false);
 	
 	function onClick(e){
@@ -39,9 +39,9 @@
 	var validIn=function(){
 		var playr=parseInt(input.value);
 		if(isNaN(playr)){
-			domChar.output.innerHTML="Please enter a number.";
+			domCharChar.output.innerHTML="Please enter a number.";
 		}else if(playr<1 || playr>10){
-			domChar.output.innerHTML="Enter a number between 1-10."
+			domCharChar.output.innerHTML="Enter a number between 1-10."
 		}else{
 			play();
 		};
@@ -69,7 +69,7 @@
 		}
 	};
 	
-	var gameEnd=function(true){
+	var gameEnd=function(){
 		if(true){
 			domChar.output.innerHTML="You won "+playr+" was the number."+" It only took you "+guessRemain+" guesses.";
 		}else{
