@@ -61,7 +61,9 @@
 			fighters[0].ftr1[2]=100;
 			fighters[0].ftr2[2]=100;
 			rndNum=0;
-		};return result                          
+		};
+		
+		return result                          
 	};
 	fight()
 })();

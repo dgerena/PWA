@@ -13,72 +13,47 @@
 	//i need a randomChar number generator for 1-10
 	var conNum=Math.round(Math.random()*(10-1)+1);//the randomChar
 	var numCatch=conNum;// store the #
-	var guess=0;//to hold the guess
 	var guessRemain=3;
-	var domCharChar={
-		outPut:document.getElementById("Output"),//output
+	var dom={
+		outPut:document.getElementById("output"),//output
 		btn:document.querySelector("#button"),//btn
 		input:document.querySelector("#input")//input field
 	};
-	
-	console.log(domCharChar);
-	domCharChar.btn.addEventListener("click",onClick,false);
+	dom.btn.addEventListener("click",onClick,false);
 	
 	function onClick(e){
 		console.log(guessRemain);
-		validIn();
-	};
-	
-	function onKeyDown(e){
-		if(e.keycode===13){
-			validIn();
-		}
-		console.log(guessRemain);
-	};
-	
-	var validIn=function(){
-		var playr=parseInt(input.value);
-		if(isNaN(playr)){
-			domCharChar.output.innerHTML="Please enter a number.";
-		}else if(playr<1 || playr>10){
-			domCharChar.output.innerHTML="Enter a number between 1-10."
+		if(guessRemain>1){
+			var guess =dom.input.value;
+		 	console.log(guess);
+			if( guess==""){
+				console.log("nothing");
+				dom.outPut.innerHTML="Guess my magic number between 1-10 <br/> You Have "+guessRemain+" Guess'. Please input a guess.";
+				return false;
+				guessRemain++;
+			}else if(guess>10||guess>conNum){
+				guessRemain--;
+				console.log("go lower");
+				dom.outPut.innerHTML="Guess my magic number between 1-10 <br/> You Have Guess "+guessRemain+" Guess'. Your current guess is over my number. Please input a guess between 1-10.";
+			}else if(guess<1||guess<conNum){
+				guessRemain--;
+				console.log("go higher");
+				dom.outPut.innerHTML="Guess my magic number between 1-10 <br/> You Have Guess "+guessRemain+" Guess'. Your current guess is below my number. Please input a guess between 1-10.";
+			}else{
+			console.log("correct");
+			dom.outPut.innerHTML="Correct, you guessed the correct number!";
+			dom.btn.innerHTML="Reset";
+			dom.btn.onclick=function reset(){
+				window.location.reload;
+			};
+			};
 		}else{
-			play();
+			dom.outPut.innerHTML="You lose, good day sir!";
+			dom.btn.innerHTML="Reset";
+			dom.btn.onclick=function reset(){
+				dom
+			};
 		};
-		
 	};
-	
-	var play=function(){
-		guessRemain--;
-		guess++;
-		var curEval="Guess: "+ guess+", Guess Left: "+guessRemain;
-		playr=parseInt(input.value);
-	};
-	
-	function winCheck(){
-		if(playr>conNum){
-			domChar.output.innerHTML="Too High";				
-		}else if(playr<conNum){
-			domChar.output.innerHTML="Too Low";	
-		}else if(playr===conNum){
-			gameEnd(true);
-		};
-		if(guessRemain<1){
-			console.log("You lose");
-			gameEnd(false);
-		}
-	};
-	
-	var gameEnd=function(){
-		if(true){
-			domChar.output.innerHTML="You won "+playr+" was the number."+" It only took you "+guessRemain+" guesses.";
-		}else{
-			domChar.output.innerHTML="You lost "+conNum+" was the number.";
-		}
-	};
-	
-	console.log(String(input.placeholder.value));// this is how i can see and hopefully get the input from the user.
-	console.log(input);
-	domCharChar.btn.addEventListener("click",onClick,false);
-	window.addEventListener("keydown",onKeyDown,false);
+		console.log("got here");
 })();
